@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +42,10 @@ public class AddActivity extends AppCompatActivity {
             case R.id.button6: //save
                 if (save(contact)) {
                     intent = new Intent(this, MainActivity.class);
-                    intent.putExtra("mymessage", "Saved Successfully!");
+                    Toast.makeText(this,"Saved Successfully!", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
+                }else {
+                    Toast.makeText(this,"There is a problem!", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.button4: //main menu

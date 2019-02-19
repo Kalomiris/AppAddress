@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, DeleteActivity.class);
                 startActivity(intent);
                 break;
-//            case R.id.button5: //updatePage
-//                intent = new Intent(this, Main4Activity.class);
-//                startActivity(intent);
-//                break;
-            case R.id.button3: //findPage
+            case R.id.button5: //findPage
+                intent = new Intent(this, FindActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.button3: //updatePage
                 intent = new Intent(this, UpdateActivity.class);
                 startActivity(intent);
                 break;
@@ -66,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
                 "email TEXT UNIQUE," +
                 "phone TEXT);");
         db.execSQL("INSERT OR IGNORE INTO contact_db VALUES('alepis','athanasiou','j', '210992838');");
-        db.execSQL("INSERT OR IGNORE INTO contact_db VALUES('Jason','Hrakleiou','Nikck@kalom.com', '210992839');");
-        db.execSQL("INSERT OR IGNORE INTO contact_db VALUES('Jason','Hrakleiou','Nikck@kalom.com', '210992839');");
-        db.execSQL("INSERT OR IGNORE INTO contact_db VALUES('Jason','Hrakleiou','Nikck@kalom.com', '210992839');");
-        db.execSQL("INSERT OR IGNORE INTO contact_db VALUES('Jason','Hrakleiou','Nikck@kalom.com', '210992839');");
+        db.execSQL("INSERT OR IGNORE INTO contact_db VALUES('Jason','Hrakleiou','Nikck@kalom1.com', '210992839');");
+        db.execSQL("INSERT OR IGNORE INTO contact_db VALUES('Jason','Hrakleiou','Nikck@kalom2.com', '210992839');");
+        db.execSQL("INSERT OR IGNORE INTO contact_db VALUES('Jason','Hrakleiou','Nikck@kalom3.com', '210992839');");
+        db.execSQL("INSERT OR IGNORE INTO contact_db VALUES('Jason','Hrakleiou','Nikck@kalom4.com', '210992839');");
     }
 }

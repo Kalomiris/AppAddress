@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class DeleteActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class DeleteActivity extends AppCompatActivity {
     public void onClick(View view) {
         db = openOrCreateDatabase("UsersDB", Context.MODE_PRIVATE, null);
         db.execSQL("DELETE FROM contact_db WHERE email = '" + email.getText().toString() + "'");
+        Toast.makeText(this,"Deleted Successfully!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this,MainActivity.class));
     }
 }

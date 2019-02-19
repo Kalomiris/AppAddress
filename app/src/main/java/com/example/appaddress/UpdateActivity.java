@@ -29,23 +29,29 @@ public class UpdateActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         if (!hasEmail()) {
-            Toast.makeText(this,"Enter an email!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"There is a problem with email!", Toast.LENGTH_SHORT).show();
+        }else {
+            db = openOrCreateDatabase("UsersDB", Context.MODE_PRIVATE, null);
+            db.execSQL("UPDATE contact_db SET phone = '" + tel.getText().toString() + "'" +
+                    " WHERE email = '" + email.getText().toString() + "'");
+            Toast.makeText(this, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, MainActivity.class));
         }
-        db = openOrCreateDatabase("UsersDB", Context.MODE_PRIVATE, null);
-        db.execSQL("UPDATE contact_db SET phone = '" + tel.getText().toString() + "'" +
-                " WHERE email = '" + email.getText().toString() + "'");
-        startActivity(new Intent(this, MainActivity.class));
-        Toast.makeText(this,"Updated Successfully!", Toast.LENGTH_SHORT).show();
     }
 
     private boolean hasEmail(){
         db = openOrCreateDatabase("UsersDB", Context.MODE_PRIVATE, null);
+        if (email.getText() == null) {
+            return false;
+        }
         @SuppressLint("Recycle")
         Cursor cursor = db.rawQuery("SELECT email FROM contact_db WHERE email = '" + email.getText().toString() + "';", null);
-        cursor.moveToNext();
-        if (cursor.getString(0) != null){
+
+        if (cursor.moveToNext()){
+            cursor.close();
             return true;
         }
+        cursor.close();
         return false;
     }
 }
